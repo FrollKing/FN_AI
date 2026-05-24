@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Никита Фролов — AI-специалист</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+:root {
+  --green: #1D9E75;
+  --green-light: #E1F5EE;
+  --green-dark: #0F6E56;
+  --green-deep: #085041;
+  --text: #0f0f0f;
+  --text-2: #555;
+  --text-3: #999;
+  --border: rgba(0,0,0,0.1);
+  --border-2: rgba(0,0,0,0.15);
+  --bg: #fafaf8;
+  --bg-2: #f2f2ef;
+  --bg-card: #fff;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Geist', sans-serif;
+  font-weight: 400;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,250,248,0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--border);
+  padding: 14px 0;
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: 'Instrument Serif', serif; font-size: 18px; color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { font-size: 14px; color: var(--text-2); text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-size: 13px; font-weight: 500;
+  background: var(--green); color: #fff;
+  border: none; border-radius: 20px;
+  padding: 8px 18px; cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.nav-cta:hover { background: var(--green-dark); }
+
+/* HERO */
+.hero {
+  padding: 72px 0 60px;
+  border-bottom: 0.5px solid var(--border);
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+  color: var(--green-dark); text-transform: uppercase;
+  background: var(--green-light); padding: 4px 12px;
+  border-radius: 20px; margin-bottom: 1.5rem;
+}
+.hero-eyebrow i { font-size: 14px; }
+.hero-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(40px, 8vw, 64px);
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+.hero-name em { font-style: italic; color: var(--green); }
+.hero-desc {
+  font-size: 17px; color: var(--text-2);
+  max-width: 520px; line-height: 1.65;
+  margin-bottom: 2rem;
+}
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.5rem; }
+.tag {
+  font-size: 13px; color: var(--text-2);
+  border: 0.5px solid var(--border-2);
+  border-radius: 20px; padding: 5px 14px;
+  background: var(--bg-card);
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 500;
+  background: var(--green); color: #fff;
+  border: none; border-radius: var(--radius-sm);
+  padding: 12px 24px; cursor: pointer; text-decoration: none;
+  transition: background 0.15s;
+}
+.btn-primary:hover { background: var(--green-dark); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; color: var(--text);
+  border: 0.5px solid var(--border-2);
+  border-radius: var(--radius-sm);
+  padding: 12px 24px; cursor: pointer;
+  text-decoration: none; background: var(--bg-card);
+  transition: background 0.15s;
+}
+.btn-secondary:hover { background: var(--bg-2); }
+.btn-primary i, .btn-secondary i { font-size: 17px; }
+
+/* SECTIONS */
+section { padding: 56px 0; border-bottom: 0.5px solid var(--border); }
+.section-label {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-3); margin-bottom: 1.5rem;
+}
+
+/* SERVICES */
+.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.service-card {
+  background: var(--bg-card);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius); padding: 1.25rem;
+  transition: border-color 0.15s;
+}
+.service-card:hover { border-color: var(--border-2); }
+.service-card.featured { border: 1.5px solid var(--green); }
+.service-icon { font-size: 22px; color: var(--green); margin-bottom: 10px; display: block; }
+.service-name { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+.service-desc { font-size: 13px; color: var(--text-2); line-height: 1.55; }
+.service-badge {
+  display: inline-block; margin-top: 10px;
+  background: var(--green-light); color: var(--green-deep);
+  font-size: 11px; padding: 3px 10px; border-radius: 20px;
+}
+
+/* PRICING */
+.price-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.price-table th {
+  text-align: left; padding: 8px 12px;
+  font-size: 11px; font-weight: 500; color: var(--text-3);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  border-bottom: 0.5px solid var(--border);
+}
+.price-table td {
+  padding: 11px 12px;
+  border-bottom: 0.5px solid var(--border);
+  vertical-align: top; color: var(--text);
+}
+.price-table tr:last-child td { border-bottom: none; }
+.cat-row td {
+  font-size: 11px; font-weight: 500; color: var(--text-3);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  background: var(--bg-2); padding: 10px 12px 6px;
+}
+.price-val { font-weight: 500; color: var(--green); white-space: nowrap; }
+.price-note { font-size: 12px; color: var(--text-3); margin-top: 3px; }
+.note-box {
+  margin-top: 1rem;
+  background: var(--bg-2);
+  border-left: 2px solid var(--green);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 12px 16px;
+  font-size: 13px; color: var(--text-2); line-height: 1.6;
+}
+
+/* CASES */
+.case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.case-card { background: var(--bg-2); border-radius: var(--radius); padding: 1.25rem; }
+.case-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 5px; }
+.case-desc { font-size: 13px; color: var(--text-2); line-height: 1.55; }
+.case-result { font-size: 12px; color: var(--green); margin-top: 10px; font-weight: 500; }
+
+/* CONTACTS */
+.contact-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 1.5rem; }
+.contact-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; color: var(--text);
+  border: 0.5px solid var(--border-2);
+  border-radius: var(--radius-sm); padding: 10px 20px;
+  text-decoration: none; background: var(--bg-card);
+  transition: background 0.15s;
+}
+.contact-btn:hover { background: var(--bg-2); }
+.contact-btn i { font-size: 18px; color: var(--green); }
+
+/* BRIEF */
+.brief-toggle {
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer; padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border-2);
+  border-radius: var(--radius);
+  transition: background 0.15s;
+  user-select: none;
+}
+.brief-toggle:hover { background: var(--bg-2); }
+.brief-toggle.open { border-radius: var(--radius) var(--radius) 0 0; border-bottom: none; }
+.brief-toggle-left { display: flex; align-items: center; gap: 12px; }
+.brief-icon { font-size: 22px; color: var(--green); }
+.brief-toggle-title { font-size: 15px; font-weight: 500; color: var(--text); }
+.brief-toggle-sub { font-size: 13px; color: var(--text-2); }
+.brief-arrow { font-size: 18px; color: var(--text-3); transition: transform 0.2s; }
+.brief-arrow.open { transform: rotate(180deg); }
+.brief-body {
+  display: none;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border-2);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 1.5rem;
+}
+.brief-body.open { display: block; }
+
+/* BRIEF FORM */
+.progress-bar { height: 3px; background: var(--bg-2); border-radius: 2px; margin-bottom: 2rem; }
+.progress-fill { height: 100%; background: var(--green); border-radius: 2px; transition: width 0.3s ease; }
+.step { display: none; animation: fadein 0.2s ease; }
+.step.active { display: block; }
+@keyframes fadein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.q-label { font-size: 11px; font-weight: 500; color: var(--text-3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.q-title { font-size: 17px; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; line-height: 1.4; }
+.q-sub { font-size: 14px; color: var(--text-2); margin-bottom: 1.25rem; line-height: 1.5; }
+.opt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 1.25rem; }
+.opt {
+  background: var(--bg-card); border: 0.5px solid var(--border-2);
+  border-radius: var(--radius-sm); padding: 11px 14px;
+  cursor: pointer; font-size: 14px; color: var(--text);
+  display: flex; align-items: center; gap: 10px;
+  transition: border-color 0.15s, background 0.15s;
+  font-family: 'Geist', sans-serif;
+}
+.opt:hover { background: var(--bg-2); }
+.opt.selected { border: 1.5px solid var(--green); background: var(--green-light); }
+.opt.selected .opt-text { color: var(--green-deep); }
+.opt i { font-size: 18px; color: var(--text-3); flex-shrink: 0; }
+.opt.selected i { color: var(--green); }
+.nav-row { display: flex; align-items: center; justify-content: space-between; margin-top: 0.5rem; }
+.btn-back {
+  background: none; border: none; font-size: 14px;
+  color: var(--text-3); cursor: pointer; padding: 8px 0;
+  font-family: 'Geist', sans-serif; display: flex; align-items: center; gap: 6px;
+}
+.btn-back:hover { color: var(--text); }
+.btn-next {
+  background: var(--bg-card); border: 0.5px solid var(--border-2);
+  border-radius: var(--radius-sm); font-size: 14px; color: var(--text);
+  padding: 10px 24px; cursor: pointer;
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Geist', sans-serif;
+  transition: background 0.15s;
+}
+.btn-next:hover { background: var(--bg-2); }
+.btn-next.primary { background: var(--green); border-color: var(--green); color: #fff; }
+.btn-next.primary:hover { background: var(--green-dark); }
+.btn-next:disabled { opacity: 0.4; cursor: default; }
+.field-wrap { margin-bottom: 1.1rem; }
+.field-wrap label { display: block; font-size: 13px; color: var(--text-2); margin-bottom: 5px; }
+.field-wrap input, .field-wrap textarea {
+  width: 100%; font-size: 14px; font-family: 'Geist', sans-serif;
+  color: var(--text); background: var(--bg);
+  border: 0.5px solid var(--border-2);
+  border-radius: var(--radius-sm); padding: 10px 12px; outline: none; line-height: 1.5;
+  transition: border-color 0.15s;
+}
+.field-wrap textarea { min-height: 80px; resize: vertical; }
+.field-wrap input:focus, .field-wrap textarea:focus { border-color: var(--green); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.result-card { background: var(--bg-2); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; }
+.result-row { display: flex; gap: 12px; margin-bottom: 10px; font-size: 14px; }
+.result-row:last-child { margin-bottom: 0; }
+.result-key { color: var(--text-3); min-width: 120px; flex-shrink: 0; }
+.result-val { color: var(--text); font-weight: 500; }
+.send-btn {
+  width: 100%; padding: 13px;
+  background: var(--green); color: #fff;
+  border: none; border-radius: var(--radius-sm);
+  font-size: 15px; font-weight: 500; cursor: pointer;
+  font-family: 'Geist', sans-serif;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: background 0.15s;
+}
+.send-btn:hover { background: var(--green-dark); }
+.send-hint { font-size: 12px; color: var(--text-3); margin-top: 10px; text-align: center; }
+
+/* FOOTER */
+footer {
+  padding: 32px 0;
+  font-size: 13px; color: var(--text-3);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 8px;
+}
+footer a { color: var(--text-3); text-decoration: none; }
+footer a:hover { color: var(--text); }
+
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .hero { padding: 48px 0 40px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="nav-logo" href="#">Никита Фролов</a>
+    <div class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#pricing">Прайс</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#brief">Бриф</a>
+    </div>
+    <a class="nav-cta" href="https://t.me/Fn_prod">Написать</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow"><i class="ti ti-sparkles"></i> AI-специалист</div>
+    <h1 class="hero-name">Контент, персонажи<br>и <em>автоматизация</em></h1>
+    <p class="hero-desc">Помогаю брендам и проектам выглядеть живо в соцсетях — через AI-персонажей, готовые сценарии и полное ведение. Делаю так, чтобы контент работал без вашего постоянного участия.</p>
+    <div class="hero-tags">
+      <span class="tag">AI-контент</span>
+      <span class="tag">Персонажи &amp; образы</span>
+      <span class="tag">Сценарии видео</span>
+      <span class="tag">Telegram / Instagram</span>
+      <span class="tag">Автоматизация</span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://t.me/Fn_prod"><i class="ti ti-brand-telegram"></i> Написать в Telegram</a>
+      <a class="btn-secondary" href="#brief"><i class="ti ti-clipboard-list"></i> Заполнить бриф</a>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-label">Что я делаю</div>
+    <div class="service-grid">
+      <div class="service-card featured">
+        <i class="ti ti-user-star service-icon"></i>
+        <div class="service-name">AI-персонаж для бренда</div>
+        <div class="service-desc">Разработка характера, голоса и визуального образа — готовый герой, который говорит от лица вашего проекта.</div>
+        <span class="service-badge">хит</span>
+      </div>
+      <div class="service-card">
+        <i class="ti ti-movie service-icon"></i>
+        <div class="service-name">Сценарии для видео</div>
+        <div class="service-desc">Reels, TikTok, Shorts — скрипты с хуком, структурой удержания и CTA. Под конкретный алгоритм и аудиторию.</div>
+      </div>
+      <div class="service-card">
+        <i class="ti ti-brand-instagram service-icon"></i>
+        <div class="service-name">Полное ведение соцсетей</div>
+        <div class="service-desc">Instagram, Telegram — стратегия, контент-план, тексты, публикация. Вы не тратите время, канал живёт и растёт.</div>
+      </div>
+      <div class="service-card">
+        <i class="ti ti-settings-automation service-icon"></i>
+        <div class="service-name">Автоматизация бизнеса</div>
+        <div class="service-desc">Чат-боты и AI-цепочки для продаж, поддержки и обработки заявок. Интеграция с Telegram, CRM, сайтом.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-label">Прайс</div>
+    <table class="price-table">
+      <thead><tr><th style="width:45%">Услуга</th><th>Стоимость</th><th>Формат</th></tr></thead>
+      <tbody>
+        <tr class="cat-row"><td colspan="3">AI-персонаж</td></tr>
+        <tr>
+          <td>Разработка AI-персонажа<div class="price-note">Характер, голос, backstory, визуальный образ, промпт-система</div></td>
+          <td class="price-val">25 000 — 50 000 ₽</td>
+          <td style="font-size:13px;color:var(--text-3)">разово</td>
+        </tr>
+        <tr>
+          <td>Персонаж + запуск канала<div class="price-note">Разработка + 2 недели контента + настройка</div></td>
+          <td class="price-val">60 000 — 90 000 ₽</td>
+          <td style="font-size:13px;color:var(--text-3)">разово</td>
+        </tr>
+        <tr class="cat-row"><td colspan="3">Сценарии &amp; видео</td></tr>
+        <tr>
+          <td>Один сценарий (Reels / TikTok)<div class="price-note">Хук, структура, текст, хэштеги</div></td>
+          <td class="price-val">1 500 — 3 000 ₽</td>
+          <td style="font-size:13px;color:var(--text-3)">за штуку</td>
+        </tr>
+        <tr>
+          <td>Пакет сценариев × 8<div class="price-note">Контент-план + 8 готовых скриптов</div></td>
+          <td class="price-val">10 000 — 18 000 ₽</td>
+          <td style="font-size:13px;color:var(--text-3)">пакет</td>
+        </tr>
+        <tr class="cat-row"><td colspan="3">Ведение соцсетей</td></tr>
+        <tr>
+          <td>Telegram — базовое ведение<div class="price-note">Контент-план, 3–4 поста в неделю, публикация</div></td>
+          <td class="price-val">20 000 — 35 000 ₽</td>
+          <td style="font-size:13px;color:var(--text-3)">в месяц</td>
+        </tr>
+        <tr>
+          <td>Instagram — полное ведение<div class="price-note">Посты, Reels-сценарии, сторис, публикация, аналитика</div></td>
+          <td class="price-val">35 000 — 65 000 ₽</td>
+          <td style="font-size:13px;color:var(--text-3)">в месяц</td>
+        </tr>
+        <tr>
+          <td>Комплекс: TG + Instagram<div class="price-note">Оба канала, единая стратегия</div></td>
+          <td class="price-val">55 000 — 90 000 ₽</td>
+          <td style="font-size:13px;color:var(--text-3)">в месяц</td>
+        </tr>
+        <tr class="cat-row"><td colspan="3">Автоматизация</td></tr>
+        <tr>
+          <td>Чат-бот для Telegram<div class="price-note">Обработка заявок, FAQ, интеграция с CRM</div></td>
+          <td class="price-val">25 000 — 60 000 ₽</td>
+          <td style="font-size:13px;color:var(--text-3)">разово</td>
+        </tr>
+        <tr>
+          <td>Поддержка / доработка<div class="price-note">Обновления, новые сценарии, техподдержка</div></td>
+          <td class="price-val">от 10 000 ₽</td>
+          <td style="font-size:13px;color:var(--text-3)">в месяц</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note-box">Цены ориентировочные — финальная стоимость зависит от объёма и сложности задачи. Всегда обсуждаю под конкретный проект.</div>
+  </section>
+
+  <!-- CASES -->
+  <section id="cases">
+    <div class="section-label">Кейсы</div>
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-title">@redracer51 — Sophie</div>
+        <div class="case-desc">AI-персонаж для F1-контента. Разработка характера, голоса, контент-стратегии и системы агентов для TikTok и Telegram. ЦА — СНГ.</div>
+        <div class="case-result">TikTok + Telegram, запуск с нуля</div>
+      </div>
+      <div class="case-card">
+        <div class="case-title">Рабочие проекты</div>
+        <div class="case-desc">Автоматизация и AI-решения в рамках рабочих задач — подробности под NDA, расскажу лично.</div>
+        <div class="case-result">Детали при запросе</div>
+      </div>
+      <div class="case-card">
+        <div class="case-title">Свои проекты</div>
+        <div class="case-desc">Личные AI-эксперименты: контентные системы, инструменты автоматизации, тесты персонажей.</div>
+        <div class="case-result">Покажу в переписке</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+  <section>
+    <div class="section-label">Связаться напрямую</div>
+    <p style="font-size:15px;color:var(--text-2);margin-bottom:0;">Пишите — отвечаю быстро.</p>
+    <div class="contact-row">
+      <a class="contact-btn" href="https://t.me/Fn_prod"><i class="ti ti-brand-telegram"></i>@Fn_prod</a>
+      <a class="contact-btn" href="mailto:n.m.froloff@gmail.com"><i class="ti ti-mail"></i>n.m.froloff@gmail.com</a>
+    </div>
+  </section>
+
+  <!-- BRIEF -->
+  <section id="brief" style="border-bottom:none;">
+    <div class="section-label">Быстрый бриф</div>
+    <div class="brief-toggle" id="brief-toggle" onclick="toggleBrief()">
+      <div class="brief-toggle-left">
+        <i class="ti ti-clipboard-list brief-icon"></i>
+        <div>
+          <div class="brief-toggle-title">Заполнить бриф</div>
+          <div class="brief-toggle-sub">5 минут — и я пойму, чем могу помочь</div>
+        </div>
+      </div>
+      <i class="ti ti-chevron-down brief-arrow" id="brief-arrow"></i>
+    </div>
+    <div class="brief-body" id="brief-body">
+      <div class="progress-bar"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+
+      <div class="step active" id="s0">
+        <div class="q-label">Шаг 1 из 6</div>
+        <div class="q-title">Что вам нужно?</div>
+        <div class="q-sub">Выберите одно или несколько направлений</div>
+        <div class="opt-grid">
+          <div class="opt" data-val="Персонаж для бренда/канала"><i class="ti ti-user-star"></i><span class="opt-text">Персонаж для бренда / канала</span></div>
+          <div class="opt" data-val="Сценарии для видео (Reels/TikTok)"><i class="ti ti-movie"></i><span class="opt-text">Сценарии для видео (Reels / TikTok)</span></div>
+          <div class="opt" data-val="Полное ведение соцсетей"><i class="ti ti-brand-instagram"></i><span class="opt-text">Полное ведение соцсетей</span></div>
+          <div class="opt" data-val="Чат-бот / автоматизация"><i class="ti ti-settings-automation"></i><span class="opt-text">Чат-бот / автоматизация</span></div>
+        </div>
+        <div class="nav-row"><span></span><button class="btn-next" id="n0" disabled onclick="next(0)">Далее <i class="ti ti-arrow-right" style="font-size:15px"></i></button></div>
+      </div>
+
+      <div class="step" id="s1">
+        <div class="q-label">Шаг 2 из 6</div>
+        <div class="q-title">Где работаем?</div>
+        <div class="q-sub">Выберите нужные платформы</div>
+        <div class="opt-grid">
+          <div class="opt" data-val="Telegram"><i class="ti ti-brand-telegram"></i><span class="opt-text">Telegram</span></div>
+          <div class="opt" data-val="Instagram"><i class="ti ti-brand-instagram"></i><span class="opt-text">Instagram</span></div>
+          <div class="opt" data-val="TikTok"><i class="ti ti-brand-tiktok"></i><span class="opt-text">TikTok</span></div>
+          <div class="opt" data-val="YouTube"><i class="ti ti-brand-youtube"></i><span class="opt-text">YouTube</span></div>
+          <div class="opt" data-val="Сайт / лендинг"><i class="ti ti-world"></i><span class="opt-text">Сайт / лендинг</span></div>
+          <div class="opt" data-val="Другое"><i class="ti ti-dots"></i><span class="opt-text">Другое</span></div>
+        </div>
+        <div class="nav-row">
+          <button class="btn-back" onclick="back(1)"><i class="ti ti-arrow-left" style="font-size:15px"></i> Назад</button>
+          <button class="btn-next" id="n1" disabled onclick="next(1)">Далее <i class="ti ti-arrow-right" style="font-size:15px"></i></button>
+        </div>
+      </div>
+
+      <div class="step" id="s2">
+        <div class="q-label">Шаг 3 из 6</div>
+        <div class="q-title">Ваш бюджет</div>
+        <div class="q-sub">Примерная сумма, которую вы готовы вложить</div>
+        <div class="opt-grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+          <div class="opt" data-val="до 20 000 ₽"><i class="ti ti-coin"></i><span class="opt-text">до 20 000 ₽</span></div>
+          <div class="opt" data-val="20 000 — 50 000 ₽"><i class="ti ti-coins"></i><span class="opt-text">20 000 — 50 000 ₽</span></div>
+          <div class="opt" data-val="50 000 — 100 000 ₽"><i class="ti ti-chart-bar"></i><span class="opt-text">50 000 — 100 000 ₽</span></div>
+          <div class="opt" data-val="более 100 000 ₽"><i class="ti ti-rocket"></i><span class="opt-text">более 100 000 ₽</span></div>
+        </div>
+        <div class="nav-row">
+          <button class="btn-back" onclick="back(2)"><i class="ti ti-arrow-left" style="font-size:15px"></i> Назад</button>
+          <button class="btn-next" id="n2" disabled onclick="next(2)">Далее <i class="ti ti-arrow-right" style="font-size:15px"></i></button>
+        </div>
+      </div>
+
+      <div class="step" id="s3">
+        <div class="q-label">Шаг 4 из 6</div>
+        <div class="q-title">Когда нужно запустить?</div>
+        <div class="q-sub">Примерные сроки</div>
+        <div class="opt-grid" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
+          <div class="opt" data-val="Как можно скорее"><i class="ti ti-flame"></i><span class="opt-text">Как можно скорее</span></div>
+          <div class="opt" data-val="В течение 2–4 недель"><i class="ti ti-calendar"></i><span class="opt-text">В течение 2–4 недель</span></div>
+          <div class="opt" data-val="1–2 месяца, не горит"><i class="ti ti-clock"></i><span class="opt-text">1–2 месяца, не горит</span></div>
+          <div class="opt" data-val="Пока изучаю варианты"><i class="ti ti-eye"></i><span class="opt-text">Пока изучаю варианты</span></div>
+        </div>
+        <div class="nav-row">
+          <button class="btn-back" onclick="back(3)"><i class="ti ti-arrow-left" style="font-size:15px"></i> Назад</button>
+          <button class="btn-next" id="n3" disabled onclick="next(3)">Далее <i class="ti ti-arrow-right" style="font-size:15px"></i></button>
+        </div>
+      </div>
+
+      <div class="step" id="s4">
+        <div class="q-label">Шаг 5 из 6</div>
+        <div class="q-title">Расскажите о проекте</div>
+        <div class="q-sub">Пара строк — что за бизнес, канал или идея</div>
+        <div class="field-wrap">
+          <textarea id="desc" placeholder="Например: онлайн-школа по дизайну, хотим вести Telegram-канал с AI-персонажем..."></textarea>
+        </div>
+        <div class="nav-row">
+          <button class="btn-back" onclick="back(4)"><i class="ti ti-arrow-left" style="font-size:15px"></i> Назад</button>
+          <button class="btn-next" onclick="next(4)">Далее <i class="ti ti-arrow-right" style="font-size:15px"></i></button>
+        </div>
+      </div>
+
+      <div class="step" id="s5">
+        <div class="q-label">Шаг 6 из 6</div>
+        <div class="q-title">Как с вами связаться?</div>
+        <div class="q-sub">Укажите хотя бы один способ — напишу первым</div>
+        <div class="contact-grid">
+          <div class="field-wrap"><label>Telegram</label><input id="c-tg" type="text" placeholder="@username"></div>
+          <div class="field-wrap"><label>Телефон / WhatsApp</label><input id="c-phone" type="text" placeholder="+7 900 000 00 00"></div>
+        </div>
+        <div class="field-wrap"><label>Email</label><input id="c-email" type="email" placeholder="you@example.com"></div>
+        <div class="field-wrap"><label>Имя <span style="color:var(--text-3)">(необязательно)</span></label><input id="c-name" type="text" placeholder="Как к вам обращаться?"></div>
+        <div id="contact-err" style="font-size:13px;color:#c0392b;margin-bottom:1rem;display:none;">Укажите хотя бы один способ связи</div>
+        <div class="nav-row">
+          <button class="btn-back" onclick="back(5)"><i class="ti ti-arrow-left" style="font-size:15px"></i> Назад</button>
+          <button class="btn-next primary" onclick="showResult()">Готово <i class="ti ti-check" style="font-size:15px"></i></button>
+        </div>
+      </div>
+
+      <div class="step" id="s6">
+        <div class="q-label" style="margin-bottom:1rem">Бриф готов</div>
+        <div class="result-card" id="result-content"></div>
+        <button class="send-btn" onclick="sendBrief()">
+          <i class="ti ti-brand-telegram" style="font-size:18px"></i>
+          Отправить Никите в Telegram ↗
+        </button>
+        <p class="send-hint">Нажимая кнопку, вы перейдёте в Telegram с готовым сообщением</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Никита Фролов</span>
+    <span>
+      <a href="https://t.me/Fn_prod">@Fn_prod</a> ·
+      <a href="mailto:n.m.froloff@gmail.com">n.m.froloff@gmail.com</a>
+    </span>
+  </footer>
+
+</div>
+
+<script>
+const answers = {task:[],platform:[],budget:'',timing:'',desc:'',tg:'',phone:'',email:'',name:''};
+
+function toggleBrief(){
+  const body = document.getElementById('brief-body');
+  const arrow = document.getElementById('brief-arrow');
+  const toggle = document.getElementById('brief-toggle');
+  const open = body.classList.toggle('open');
+  arrow.classList.toggle('open', open);
+  toggle.classList.toggle('open', open);
+  if(open) setTimeout(()=>toggle.scrollIntoView({behavior:'smooth',block:'start'}),100);
+}
+
+function updateProgress(step){ document.getElementById('prog').style.width = Math.round((step/6)*100)+'%'; }
+
+function setupMulti(stepEl, key, nextBtn){
+  stepEl.querySelectorAll('.opt').forEach(o=>{
+    o.addEventListener('click',()=>{
+      const v = o.dataset.val;
+      o.classList.toggle('selected');
+      const idx = answers[key].indexOf(v);
+      if(idx>-1) answers[key].splice(idx,1); else answers[key].push(v);
+      document.getElementById(nextBtn).disabled = answers[key].length===0;
+    });
+  });
+}
+
+function setupSingle(stepEl, key, nextBtn){
+  stepEl.querySelectorAll('.opt').forEach(o=>{
+    o.addEventListener('click',()=>{
+      stepEl.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));
+      o.classList.add('selected');
+      answers[key] = o.dataset.val;
+      document.getElementById(nextBtn).disabled = false;
+    });
+  });
+}
+
+function next(from){ document.getElementById('s'+from).classList.remove('active'); document.getElementById('s'+(from+1)).classList.add('active'); updateProgress(from+1); }
+function back(from){ document.getElementById('s'+from).classList.remove('active'); document.getElementById('s'+(from-1)).classList.add('active'); updateProgress(from-1); }
+
+function showResult(){
+  answers.tg = document.getElementById('c-tg').value.trim();
+  answers.phone = document.getElementById('c-phone').value.trim();
+  answers.email = document.getElementById('c-email').value.trim();
+  answers.name = document.getElementById('c-name').value.trim();
+  if(!answers.tg && !answers.phone && !answers.email){ document.getElementById('contact-err').style.display='block'; return; }
+  document.getElementById('contact-err').style.display='none';
+  answers.desc = document.getElementById('desc').value.trim();
+  document.getElementById('s5').classList.remove('active');
+  document.getElementById('s6').classList.add('active');
+  updateProgress(6);
+  const contact = [answers.name?'Имя: '+answers.name:'', answers.tg?'Telegram: '+answers.tg:'', answers.phone?'Телефон: '+answers.phone:'', answers.email?'Email: '+answers.email:''].filter(Boolean).join(' · ');
+  const rows = [{k:'Задача',v:answers.task.join(', ')||'—'},{k:'Платформы',v:answers.platform.join(', ')||'—'},{k:'Бюджет',v:answers.budget||'—'},{k:'Сроки',v:answers.timing||'—'},{k:'О проекте',v:answers.desc||'—'},{k:'Контакт',v:contact||'—'}];
+  document.getElementById('result-content').innerHTML = rows.map(r=>`<div class="result-row"><span class="result-key">${r.k}</span><span class="result-val">${r.v}</span></div>`).join('');
+}
+
+function sendBrief(){
+  const contact = [answers.name?'Имя: '+answers.name:'', answers.tg?'Telegram: '+answers.tg:'', answers.phone?'Телефон: '+answers.phone:'', answers.email?'Email: '+answers.email:''].filter(Boolean).join('\n');
+  const text = `Привет, Никита! Заполнил бриф:\n\nЗадача: ${answers.task.join(', ')||'—'}\nПлатформы: ${answers.platform.join(', ')||'—'}\nБюджет: ${answers.budget||'—'}\nСроки: ${answers.timing||'—'}\nО проекте: ${answers.desc||'—'}\n\nКонтакт:\n${contact}`;
+  window.open('https://t.me/Fn_prod?text='+encodeURIComponent(text), '_blank');
+}
+
+setupMulti(document.getElementById('s0'),'task','n0');
+setupMulti(document.getElementById('s1'),'platform','n1');
+setupSingle(document.getElementById('s2'),'budget','n2');
+setupSingle(document.getElementById('s3'),'timing','n3');
+updateProgress(0);
+</script>
+</body>
+</html>
